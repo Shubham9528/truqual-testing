@@ -1,0 +1,186 @@
+import { useEffect, useState } from "react";
+import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import PageBanner from "@/components/PageBanner";
+import SectionLabel from "@/components/SectionLabel";
+import { toast } from "sonner";
+
+const contactInfo = [
+  { icon: MapPin, title: "Office Address", text: "Truqual Validation Expert Services\nInnovation Hub, Viman Nagar\nPune, Maharashtra 411014" },
+  { icon: Phone, title: "Phone", text: "+91 20 4567 8900\n+91 98765 43210 (WhatsApp)" },
+  { icon: Mail, title: "Email", text: "info@truqual.com\ncareers@truqual.com" },
+  { icon: Clock, title: "Business Hours", text: "Monday–Friday: 9:00 AM – 6:00 PM IST\nSaturday: 10:00 AM – 2:00 PM IST" },
+];
+
+const serviceOptions = [
+  "Process Validation",
+  "Computer System Validation (CSV)",
+  "Equipment Qualification (IQ/OQ/PQ)",
+  "Method Validation",
+  "Regulatory Compliance & Audits",
+  "Risk Management",
+  "Cleaning Validation",
+  "Training & Workshops",
+  "Other / Multiple Services",
+];
+
+export default function ContactPage() {
+  useScrollReveal();
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const [formData, setFormData] = useState({
+    firstName: "", lastName: "", email: "", company: "", service: "", message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("Message sent! We'll get back to you within 24 hours.");
+    setFormData({ firstName: "", lastName: "", email: "", company: "", service: "", message: "" });
+  };
+
+  return (
+    <>
+      <PageBanner
+        title="Contact Us"
+        subtitle="Talk to our validation experts today — free consultation available."
+      />
+
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10">
+            {/* Left — Info */}
+            <div className="reveal-left">
+              <SectionLabel label="Get In Touch" />
+              <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-4 leading-tight">
+                Let's Discuss Your Validation Needs
+              </h2>
+              <div className="h-[3px] w-14 gradient-bar rounded-full mb-8" />
+
+              <div className="space-y-5 mb-8">
+                {contactInfo.map((item) => (
+                  <div key={item.title} className="flex gap-3 items-start">
+                    <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
+                      <item.icon size={18} className="text-amber" />
+                    </div>
+                    <div>
+                      <h4 className="font-heading font-bold text-sm mb-0.5">{item.title}</h4>
+                      <p className="text-sm text-muted-foreground whitespace-pre-line">{item.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-4 bg-green-muted border border-accent/20 rounded-xl">
+                <h4 className="font-heading font-bold text-sm mb-1">🆓 Free Initial Consultation</h4>
+                <p className="text-sm text-muted-foreground">
+                  We offer a complimentary 30-minute consultation to discuss your validation challenges. No obligation.
+                </p>
+              </div>
+            </div>
+
+            {/* Right — Form */}
+            <div className="reveal-right">
+              <form onSubmit={handleSubmit} className="bg-secondary rounded-2xl p-6 md:p-8 border border-border">
+                <h3 className="font-heading font-bold text-lg mb-6">Send Us a Message</h3>
+
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label className="block font-heading font-bold text-xs uppercase tracking-wide mb-1.5">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      placeholder="Rajesh"
+                      className="w-full px-3 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:border-accent focus:outline-none transition-colors"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-heading font-bold text-xs uppercase tracking-wide mb-1.5">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      placeholder="Mehta"
+                      className="w-full px-3 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:border-accent focus:outline-none transition-colors"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block font-heading font-bold text-xs uppercase tracking-wide mb-1.5">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="rajesh@company.com"
+                    className="w-full px-3 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:border-accent focus:outline-none transition-colors"
+                    required
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block font-heading font-bold text-xs uppercase tracking-wide mb-1.5">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.company}
+                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    placeholder="Your Company Name"
+                    className="w-full px-3 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:border-accent focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block font-heading font-bold text-xs uppercase tracking-wide mb-1.5">
+                    Service of Interest
+                  </label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full px-3 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:border-accent focus:outline-none transition-colors"
+                  >
+                    <option value="">Select a service...</option>
+                    {serviceOptions.map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block font-heading font-bold text-xs uppercase tracking-wide mb-1.5">
+                    Message
+                  </label>
+                  <textarea
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Describe your validation requirements or questions..."
+                    rows={4}
+                    className="w-full px-3 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:border-accent focus:outline-none transition-colors resize-vertical"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide transition-all duration-200 hover:opacity-90 active:scale-[0.97] flex items-center justify-center gap-2"
+                >
+                  Send Message & Request Consultation
+                  <ArrowRight size={16} />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
