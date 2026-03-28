@@ -54,9 +54,14 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="reveal-right">
-              <div className="bg-secondary border border-border rounded-2xl p-10 flex flex-col items-center justify-center min-h-[320px]">
-                <span className="font-heading font-black text-6xl text-amber tracking-[4px]">TQ</span>
-                <span className="text-muted-foreground text-xs uppercase tracking-[3px] mt-2 font-heading font-semibold">
+              <div className="bg-secondary border border-border rounded-2xl p-10 flex flex-col items-center justify-center min-h-[320px] gap-4">
+                <img
+                  src="/logo.png"
+                  alt="Truqual"
+                  className="h-36 w-auto sm:h-44 max-h-[220px] object-contain"
+                  decoding="async"
+                />
+                <span className="text-muted-foreground text-xs uppercase tracking-[3px] font-heading font-semibold">
                   Since 2008
                 </span>
               </div>

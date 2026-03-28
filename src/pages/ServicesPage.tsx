@@ -1,5 +1,23 @@
 import { useEffect } from "react";
-import { Shield, Monitor, Wrench, FlaskConical, ClipboardCheck, AlertTriangle, Thermometer, Factory, GraduationCap } from "lucide-react";
+import {
+  Shield,
+  Monitor,
+  Wrench,
+  FlaskConical,
+  ClipboardCheck,
+  AlertTriangle,
+  Thermometer,
+  Factory,
+  GraduationCap,
+  Layers,
+  GitBranch,
+  Database,
+  Microscope,
+  ScanLine,
+  HeartPulse,
+  Snowflake,
+  Package,
+} from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/PageBanner";
 import SectionLabel from "@/components/SectionLabel";
@@ -14,6 +32,14 @@ const allServices = [
   { icon: Thermometer, title: "Cleaning Validation", desc: "Dedicated cleaning validation programs with swab/rinse sampling, worst-case product calculations, acceptance criteria determination, and analytical testing support." },
   { icon: Factory, title: "Facility & Utility Validation", desc: "Clean room qualification, HVAC validation, purified water and WFI systems, compressed air, nitrogen — complete utility validation packages." },
   { icon: GraduationCap, title: "Training & Workshops", desc: "Onsite and virtual training programs on GMP, GDP, process validation lifecycle, CSV/GAMP 5, risk management, data integrity, and regulatory compliance." },
+  { icon: Layers, title: "CQV & Capital Project Support", desc: "End-to-end commissioning, qualification, and validation for greenfield and brownfield projects — URS through PQ, turnover packages, and seamless handover to operations." },
+  { icon: GitBranch, title: "Tech Transfer & Scale-Up", desc: "Process transfers between sites or scales, comparability protocols, bridging validation, and PPQ strategy updates to maintain product quality and regulatory alignment." },
+  { icon: Microscope, title: "Sterility Assurance & Aseptic Validation", desc: "Media fill simulations, aseptic process simulations, smoke studies, EM program support, and Annex 1–aligned contamination control strategy documentation." },
+  { icon: Package, title: "Packaging Validation", desc: "Primary and secondary packaging qualifications, shelf-life supporting studies coordination, container–closure integrity considerations, and line-clearance SOP alignment." },
+  { icon: ScanLine, title: "Serialization & Track-and-Trace", desc: "DSCSA / EU FMD readiness, Level 3–4 integration support, PI verification, error-handling SOPs, and validation evidence for serialization and aggregation lines." },
+  { icon: Database, title: "Data Integrity & ALCOA+", desc: "Data governance gap assessments, audit trail reviews, ALCOA+ remediation, MHRA/FDA data integrity expectation mapping, and lab/instrument data flow documentation." },
+  { icon: Snowflake, title: "Temperature Mapping & Cold Chain", desc: "Warehouse, freezer, refrigerator, incubator, and transport mapping; seasonal re-verification planning; and cold-chain validation for APIs, DP, and clinical supplies." },
+  { icon: HeartPulse, title: "Medical Device QMS & Validation", desc: "ISO 13485 and 21 CFR Part 820 design controls support, process validation for device manufacturing, and software in medical device (SiMD) lifecycle documentation." },
 ];
 
 export default function ServicesPage() {

@@ -36,9 +36,14 @@ export default function Navbar() {
       style={{ borderBottom: "2px solid hsl(var(--amber))", backgroundColor: "hsl(213 39% 11% / 0.98)", backdropFilter: "blur(12px)" }}
     >
       <div className="container-narrow flex items-center justify-between h-[70px] px-6">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 no-underline">
-          <div className="flex flex-col">
+        <Link to="/" className="flex items-center gap-0 no-underline">
+          <img
+            src="/logo.png"
+            alt=""
+            className="h-12 w-auto sm:h-[3.75rem] max-h-[60px] shrink-0 object-contain object-left block"
+            decoding="async"
+          />
+          <div className="flex flex-col min-w-0 -ml-2 sm:-ml-2.5">
             <span className="font-heading font-bold text-lg tracking-[2px] text-white">
               TRUQUAL
             </span>

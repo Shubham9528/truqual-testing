@@ -270,25 +270,32 @@ export default function HomePage() {
       </section>
 
       {/* ===== NEWSLETTER CTA ===== */}
-      <section className="hero-gradient relative overflow-hidden py-20 px-6">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "radial-gradient(circle at 30% 50%, hsla(103,62%,59%,0.06) 0%, transparent 50%), radial-gradient(circle at 70% 50%, hsla(37,91%,53%,0.06) 0%, transparent 50%)"
-        }} />
+      <section className="section-padding relative overflow-hidden bg-navy-mid border-t border-amber/25 text-white">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-70"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 90% 80% at 50% -20%, hsla(103,62%,59%,0.12) 0%, transparent 55%), radial-gradient(ellipse 70% 50% at 100% 100%, hsla(37,91%,53%,0.08) 0%, transparent 45%)",
+          }}
+        />
         <div className="relative z-10 max-w-xl mx-auto text-center reveal">
-          <SectionLabel label="Stay Informed" className="!text-accent" />
+          <SectionLabel label="Stay Informed" />
           <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-white mb-3">
             Stay Ahead of Compliance.
           </h2>
-          <p className="text-slate-400 leading-relaxed mb-6">
+          <p className="text-slate-light leading-relaxed mb-6">
             Get the latest regulatory updates, validation insights, and industry news — delivered to your inbox.
           </p>
-          <div className="flex gap-3 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-md bg-white/[0.08] border border-white/15 text-white text-sm placeholder:text-slate-400 focus:border-accent focus:outline-none"
+              className="flex-1 px-4 py-3 rounded-md bg-white/10 border border-white/15 text-white text-sm placeholder:text-slate-light/80 focus:border-accent focus:ring-1 focus:ring-accent/40 focus:outline-none"
             />
-            <button className="px-6 py-3 rounded-md bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide hover:opacity-90 transition-opacity active:scale-[0.97] flex-shrink-0">
+            <button
+              type="button"
+              className="px-6 py-3 rounded-md bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide hover:opacity-90 transition-opacity active:scale-[0.97] flex-shrink-0"
+            >
               Subscribe
             </button>
           </div>
