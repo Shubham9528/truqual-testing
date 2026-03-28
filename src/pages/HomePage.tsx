@@ -81,8 +81,8 @@ export default function HomePage() {
           backgroundSize: "60px 60px"
         }} />
 
-        <div className="relative z-10 container-narrow px-6 py-16 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="relative z-10 container-narrow px-5 sm:px-6 py-12 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left */}
             <div>
               <div className="inline-flex items-center gap-2 bg-white/5 border border-amber/30 rounded-full px-4 py-1.5 mb-6">
@@ -92,7 +92,7 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-[3.4rem] text-white leading-[1.08] mb-5" style={{ lineHeight: "1.08" }}>
+              <h1 className="font-heading font-black text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] text-white leading-[1.08] mb-4 md:mb-5" style={{ lineHeight: "1.08" }}>
                 Validation You Can{" "}
                 <span className="text-amber">Trust.</span>
                 <br />
@@ -100,35 +100,35 @@ export default function HomePage() {
                 <span className="text-green">Prove.</span>
               </h1>
 
-              <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-[480px] mb-8">
+              <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-[480px] mb-7 md:mb-8">
                 End-to-end validation and regulatory compliance services for pharmaceutical,
                 biotech, and medical device companies — from process design to FDA approval.
               </p>
 
-              <div className="flex flex-wrap gap-3 mb-10">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 md:mb-10">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide no-underline transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-[0.97]"
+                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3.5 rounded-md bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide no-underline transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-[0.97]"
                 >
                   Request Consultation
                   <ArrowRight size={16} />
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-white/25 text-white font-heading font-semibold text-sm uppercase tracking-wide no-underline transition-all duration-200 hover:border-accent hover:text-accent"
+                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3.5 rounded-md border border-white/25 text-white font-heading font-semibold text-sm uppercase tracking-wide no-underline transition-all duration-200 hover:border-accent hover:text-accent"
                 >
                   Our Services
                 </Link>
               </div>
 
               {/* Stats */}
-              <div className="flex gap-8 pt-6 border-t border-white/10">
+              <div className="flex flex-wrap gap-x-6 gap-y-4 pt-5 md:pt-6 border-t border-white/10">
                 {stats.map((s) => (
-                  <div key={s.label}>
-                    <div className="font-heading font-extrabold text-2xl text-amber tabular-nums">
+                  <div key={s.label} className="min-w-[120px] flex-1 sm:flex-none">
+                    <div className="font-heading font-extrabold text-xl sm:text-2xl text-amber tabular-nums">
                       {s.value}
                     </div>
-                    <div className="text-xs text-slate-400 uppercase tracking-wider">
+                    <div className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider">
                       {s.label}
                     </div>
                   </div>
