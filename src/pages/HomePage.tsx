@@ -30,6 +30,31 @@ const stats = [
   { value: "15+", label: "Years Expertise" },
 ];
 
+const processSteps = [
+  {
+    step: "01",
+    title: "Assess & Map",
+    desc: "We review your facility, systems, and regulatory obligations to define a practical validation roadmap.",
+  },
+  {
+    step: "02",
+    title: "Document & Execute",
+    desc: "Our team builds protocols, executes qualification activities, and captures evidence with inspection-ready rigor.",
+  },
+  {
+    step: "03",
+    title: "Sustain & Improve",
+    desc: "We close gaps, train stakeholders, and support long-term compliance through change control and periodic review.",
+  },
+];
+
+const deliverables = [
+  "Validation master plans aligned to your site and product risk profile",
+  "IQ/OQ/PQ, CSV, and method validation protocols with traceable evidence",
+  "Gap assessments and remediation plans for inspections and audits",
+  "Standard operating procedures and training support for operational readiness",
+];
+
 export default function HomePage() {
   useScrollReveal();
 
@@ -190,7 +215,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== INDUSTRIES ===== */}
-      <section className="section-padding bg-secondary/50">
+      <section className="pt-12 pb-20 md:pt-16 md:pb-24 bg-secondary/50">
         <div className="container-narrow">
           <div className="reveal">
             <SectionLabel label="Industries" />
@@ -221,7 +246,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== WHY TRUQUAL ===== */}
-      <section className="section-padding bg-background">
+      <section className="pt-12 pb-20 md:pt-16 md:pb-24 bg-background">
         <div className="container-narrow">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="reveal-left">
@@ -263,6 +288,121 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ENGAGEMENT MODEL ===== */}
+      <section className="pt-12 pb-20 md:pt-16 md:pb-24 bg-secondary/40 border-y border-border/60">
+        <div className="container-narrow">
+          <div className="reveal text-center max-w-2xl mx-auto mb-12">
+            <SectionLabel label="How We Work" />
+            <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-3 leading-tight">
+              A Validation Approach Built for Regulated Teams
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              We combine regulatory depth with execution discipline so your team gets
+              fast momentum without sacrificing documentation quality.
+            </p>
+            <div className="h-[3px] w-14 gradient-bar rounded-full mt-5 mx-auto" />
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-5 stagger-children">
+            {processSteps.map((item) => (
+              <div
+                key={item.step}
+                className="reveal relative bg-card border border-border rounded-2xl p-7 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 hover:border-accent group"
+              >
+                <div className="absolute top-0 left-0 right-0 h-[3px] gradient-bar" />
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-heading font-black text-4xl leading-none text-accent/20">
+                    {item.step}
+                  </span>
+                  <span className="text-[10px] font-heading font-bold uppercase tracking-[2px] text-amber">
+                    Truqual Method
+                  </span>
+                </div>
+                <h3 className="font-heading font-bold text-lg text-foreground mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== DELIVERABLES ===== */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-stretch">
+            <div className="reveal-left bg-card border border-border rounded-2xl p-8 md:p-10 shadow-lg">
+              <SectionLabel label="What You Receive" />
+              <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-4 leading-tight">
+                Deliverables That Stand Up to Review
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+                Every engagement is structured around usable documentation, clean traceability,
+                and practical handoff materials your quality and operations teams can rely on.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                {deliverables.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3 rounded-xl border border-border/80 bg-secondary/30 px-4 py-4"
+                  >
+                    <CheckCircle2 size={18} className="text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="reveal-right relative overflow-hidden rounded-2xl border border-border bg-card p-8 md:p-10 shadow-lg">
+              <div
+                className="absolute inset-0 opacity-100"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 20% 20%, hsla(37,91%,53%,0.10) 0%, transparent 35%), radial-gradient(circle at 80% 80%, hsla(103,62%,59%,0.10) 0%, transparent 35%)",
+                }}
+              />
+              <div className="relative z-10">
+                <SectionLabel label="Execution Standard" />
+                <h3 className="font-heading font-extrabold text-2xl text-foreground mb-4 leading-tight">
+                  Ready for Internal QA and External Inspection
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  We build documentation packages that are clear enough for operators,
+                  defensible enough for auditors, and structured enough for long-term maintenance.
+                </p>
+
+                <div className="space-y-4 mb-8">
+                  {[
+                    ["Risk-based rationale", "Aligned to ICH, GAMP 5, and site-specific quality requirements."],
+                    ["Traceable evidence", "Protocols, deviations, approvals, and reports remain connected and reviewable."],
+                    ["Operational handoff", "Your internal team gets documentation they can actually sustain after go-live."],
+                  ].map(([title, desc]) => (
+                    <div key={title} className="border-b border-border/80 pb-4 last:border-b-0 last:pb-0">
+                      <div className="font-heading font-bold text-sm uppercase tracking-wide text-amber mb-1">
+                        {title}
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide no-underline transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-[0.97]"
+                >
+                  Discuss Your Project
+                  <ArrowRight size={16} />
+                </Link>
               </div>
             </div>
           </div>
