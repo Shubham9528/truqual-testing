@@ -287,13 +287,13 @@ export default function HomePage() {
         <div className="container-narrow relative z-10">
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
             <div className="reveal relative overflow-hidden rounded-[28px] border border-border/80 bg-white p-6 sm:p-8 md:p-10 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
-              <div
+              {/* <div
                 className="absolute inset-0 opacity-100"
                 style={{
                   backgroundImage:
                     "radial-gradient(circle at top left, hsla(37,91%,53%,0.12) 0%, transparent 32%), radial-gradient(circle at bottom right, hsla(103,62%,59%,0.10) 0%, transparent 34%)",
                 }}
-              />
+              /> */}
               <div className="relative">
                 <SectionLabel label="Why TruQualVES" />
                 <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-foreground max-w-xl mb-4">
@@ -421,13 +421,13 @@ export default function HomePage() {
             </div>
 
             <div className="reveal-right relative overflow-hidden rounded-2xl border border-border bg-card p-8 md:p-10 shadow-lg">
-              <div
+              {/* <div
                 className="absolute inset-0 opacity-100"
                 style={{
                   backgroundImage:
                     "radial-gradient(circle at 20% 20%, hsla(37,91%,53%,0.10) 0%, transparent 35%), radial-gradient(circle at 80% 80%, hsla(103,62%,59%,0.10) 0%, transparent 35%)",
                 }}
-              />
+              /> */}
               <div className="relative z-10">
                 <SectionLabel label="Execution Standard" />
                 <h3 className="font-heading font-extrabold text-2xl text-foreground mb-4 leading-tight">
