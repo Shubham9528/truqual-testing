@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Monitor, Wrench, FlaskConical, ClipboardCheck, GraduationCap, ArrowRight, CheckCircle2, Pill, Stethoscope, Factory, Beaker, Building2, Leaf } from "lucide-react";
+import { Shield, Monitor, Wrench, FlaskConical, ClipboardCheck, GraduationCap, ArrowRight, CheckCircle2, Radar, FileCheck2, Layers3, Sparkles } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -12,15 +12,6 @@ const services = [
   { icon: FlaskConical, title: "Method Validation", desc: "Analytical method validation per ICH Q2(R1) — accuracy, precision, specificity, linearity." },
   { icon: ClipboardCheck, title: "Regulatory Compliance", desc: "Mock inspections, gap assessments, and pre-regulatory audit preparations aligned with global standards." },
   { icon: GraduationCap, title: "Training & Workshops", desc: "Customized programs on GMP, GDP, validation best practices, and regulatory requirements." },
-];
-
-const industries = [
-  { icon: Pill, title: "Pharmaceutical & Biotech", desc: "Process validation, sterility assurance, and regulatory compliance for drug manufacturers." },
-  { icon: Stethoscope, title: "Medical Devices", desc: "ISO 13485-compliant validation services including IQ/OQ/PQ and software validation." },
-  { icon: Factory, title: "Food & Beverage", desc: "HACCP-based validation, process qualification for food manufacturing facilities." },
-  { icon: Beaker, title: "Chemical Manufacturing", desc: "Process validation for API manufacturers meeting ICH and REACH standards." },
-  { icon: Building2, title: "Healthcare IT", desc: "CSV and 21 CFR Part 11 compliance for healthcare IT and clinical data systems." },
-  { icon: Leaf, title: "Nutraceuticals & Cosmetics", desc: "GMP compliance and quality system support for nutraceutical manufacturers." },
 ];
 
 const stats = [
@@ -45,6 +36,24 @@ const processSteps = [
     step: "03",
     title: "Sustain & Improve",
     desc: "We close gaps, train stakeholders, and support long-term compliance through change control and periodic review.",
+  },
+];
+
+const truqualvesPillars = [
+  {
+    title: "Precision-Led Strategy",
+    desc: "Every validation path is shaped around your process risk, system complexity, and inspection exposure rather than generic templates.",
+    icon: Radar,
+  },
+  {
+    title: "Documentation That Holds",
+    desc: "Protocols, evidence, and approvals are built to remain readable, traceable, and defensible long after project handoff.",
+    icon: FileCheck2,
+  },
+  {
+    title: "Execution With Control",
+    desc: "We align engineering, quality, and operations so qualification work moves quickly without weakening compliance discipline.",
+    icon: Layers3,
   },
 ];
 
@@ -214,85 +223,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== INDUSTRIES ===== */}
-      <section className="pt-12 pb-20 md:pt-16 md:pb-24 bg-secondary/50">
-        <div className="container-narrow">
-          <div className="reveal">
-            <SectionLabel label="Industries" />
-            <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-2 leading-tight">
-              Cross-Industry Validation Mastery
-            </h2>
-            <div className="h-[3px] w-14 gradient-bar rounded-full mt-4 mb-10" />
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
-            {industries.map((ind) => (
-              <div
-                key={ind.title}
-                className="reveal bg-card border border-border rounded-xl p-6 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 hover:border-accent group"
-              >
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] gradient-bar" />
-                <ind.icon size={28} className="text-accent mb-3" />
-                <h3 className="font-heading font-bold text-sm text-foreground uppercase tracking-wide mb-2">
-                  {ind.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {ind.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== WHY TRUQUAL ===== */}
-      <section className="pt-12 pb-20 md:pt-16 md:pb-24 bg-background">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="reveal-left">
-              <SectionLabel label="Why Truqual" />
-              <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-4 leading-tight">
-                Built on Trust, Powered by Expertise
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                With over 15 years of combined expertise, our team of seasoned validation specialists
-                has successfully supported clients across pharmaceutical, biotech, medical device,
-                and food & beverage industries worldwide.
-              </p>
-              <div className="space-y-3">
-                {[
-                  "Zero critical FDA 483 observations across all projects",
-                  "Dedicated team assigned to every engagement",
-                  "Complete documentation packages — VMP through PQ",
-                  "24/7 support during regulatory inspections",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="reveal-right">
-              <div className="bg-card border border-border rounded-2xl p-8 relative overflow-hidden shadow-lg">
-                <div className="absolute top-0 left-0 right-0 h-1 gradient-bar" />
-                <div className="grid grid-cols-2 gap-6">
-                  {stats.map((s) => (
-                    <div key={s.label} className="text-center">
-                      <div className="font-heading font-extrabold text-3xl text-amber tabular-nums mb-1">
-                        {s.value}
-                      </div>
-                      <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                        {s.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ===== ENGAGEMENT MODEL ===== */}
       <section className="pt-12 pb-20 md:pt-16 md:pb-24 bg-secondary/40 border-y border-border/60">
@@ -332,6 +262,133 @@ export default function HomePage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY TRUQUALVES ===== */}
+      <section className="section-padding relative overflow-hidden bg-background">
+        {/* <div
+          className="pointer-events-none absolute inset-0 opacity-100"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 12% 18%, hsla(37,91%,53%,0.14) 0%, transparent 30%), radial-gradient(circle at 85% 22%, hsla(103,62%,59%,0.12) 0%, transparent 34%), linear-gradient(180deg, hsla(210,20%,98%,1) 0%, hsla(210,20%,97%,1) 52%, hsla(210,20%,95%,1) 100%)",
+          }}
+        /> */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsla(213,39%,11%,0.04) 1px, transparent 1px), linear-gradient(90deg, hsla(213,39%,11%,0.04) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
+        />
+
+        <div className="container-narrow relative z-10">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+            <div className="reveal relative overflow-hidden rounded-[28px] border border-border/80 bg-white p-6 sm:p-8 md:p-10 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+              <div
+                className="absolute inset-0 opacity-100"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at top left, hsla(37,91%,53%,0.12) 0%, transparent 32%), radial-gradient(circle at bottom right, hsla(103,62%,59%,0.10) 0%, transparent 34%)",
+                }}
+              />
+              <div className="relative">
+                <SectionLabel label="Why TruQualVES" />
+                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-foreground max-w-xl mb-4">
+                  Built for regulated teams that need speed, proof, and zero ambiguity.
+                </h2>
+                <p className="max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed mb-8">
+                  TruQualVES combines validation depth, audit-ready documentation, and practical execution support so your teams can move from qualification to inspection with confidence.
+                </p>
+
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {[
+                    ["Risk-first planning", "Site-specific validation logic from day one"],
+                    ["Cross-functional delivery", "Quality, engineering, and operations in sync"],
+                    ["Inspection-ready output", "Evidence packages structured for review"],
+                  ].map(([title, desc]) => (
+                    <div
+                      key={title}
+                      className="rounded-2xl border border-border/70 bg-secondary/40 px-4 py-5 backdrop-blur-sm"
+                    >
+                      <div className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-amber mb-2">
+                        {title}
+                      </div>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Link
+                    to="/about"
+                    className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-heading font-bold uppercase tracking-wide text-primary-foreground no-underline transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.97]"
+                  >
+                    Explore Our Approach
+                    <ArrowRight size={16} />
+                  </Link>
+                  <div className="inline-flex items-center justify-center sm:justify-start gap-2 rounded-full border border-border/80 bg-secondary/60 px-4 py-3 text-xs font-heading font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    <Sparkles size={14} className="text-green" />
+                    Validation Expert Services
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="stagger-children grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              {truqualvesPillars.map((pillar, index) => (
+                <div
+                  key={pillar.title}
+                  className={`reveal relative overflow-hidden rounded-[24px] border p-6 sm:p-7 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ${
+                    index === 1
+                      ? "border-accent/30 bg-white"
+                      : "border-border/80 bg-white/90"
+                  }`}
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-1"
+                    style={{
+                      background:
+                        index === 1
+                          ? "linear-gradient(90deg, hsl(var(--amber)), hsl(var(--green)))"
+                          : "linear-gradient(90deg, hsla(37,91%,53%,0.55), hsla(103,62%,59%,0.4))",
+                    }}
+                  />
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-secondary/70">
+                      <pillar.icon size={22} className="text-amber" />
+                    </div>
+                    <div>
+                      <div className="font-heading text-lg font-bold text-foreground mb-2">
+                        {pillar.title}
+                      </div>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {pillar.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              <div className="reveal grid grid-cols-3 gap-3 rounded-[24px] border border-border/80 bg-white p-4 sm:p-5 shadow-[0_18px_45px_rgba(15,23,42,0.06)]">
+                {[
+                  ["GMP", "Aligned"],
+                  ["CSV", "Structured"],
+                  ["QA", "Defensible"],
+                ].map(([value, label]) => (
+                  <div key={value} className="rounded-2xl bg-secondary/50 px-3 py-4 text-center">
+                    <div className="font-heading text-lg sm:text-xl font-extrabold text-amber">
+                      {value}
+                    </div>
+                    <div className="mt-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                      {label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
