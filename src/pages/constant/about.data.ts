@@ -10,17 +10,17 @@ import {
 } from "lucide-react";
 
 export const values = [
-  { icon: Target, title: "Precision", desc: "Meticulous attention to every protocol, every test, every document â€” because in validation, details save lives." },
-  { icon: CheckCircle2, title: "Excellence", desc: "We don't just meet standards â€” we set them. Every deliverable exceeds regulatory expectations." },
+  { icon: Target, title: "Precision", desc: "Meticulous attention to every protocol, every test, every document ” because in validation, details save lives." },
+  { icon: CheckCircle2, title: "Excellence", desc: "We don't just meet standards ” we set them. Every deliverable exceeds regulatory expectations." },
   { icon: Lightbulb, title: "Innovation", desc: "Adopting the latest frameworks and risk-based approaches to deliver smarter solutions." },
-  { icon: Scale, title: "Integrity", desc: "Transparent, honest, and objective counsel â€” always in the best interest of the client." },
+  { icon: Scale, title: "Integrity", desc: "Transparent, honest, and objective counsel ” always in the best interest of the client." },
 ];
 
 export const missionVision = [
   {
     icon: Target,
     title: "Mission",
-    desc: "Deliver validation and compliance programs that regulators respect, auditors accept, and your operations can sustain â€” without slowing innovation.",
+    desc: "Deliver validation and compliance programs that regulators respect, auditors accept, and your operations can sustain ” without slowing innovation.",
   },
   {
     icon: Eye,
@@ -33,7 +33,7 @@ export const howWePartner = [
   {
     icon: Users,
     title: "Embedded specialists",
-    desc: "Senior practitioners work alongside your QA, MS&T, and IT teams â€” not a distant help desk â€” so knowledge stays with you after the project.",
+    desc: "Senior practitioners work alongside your QA, MS&T, and IT teams ” not a distant help desk ” so knowledge stays with you after the project.",
   },
   {
     icon: FileCheck,
