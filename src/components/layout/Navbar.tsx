@@ -10,7 +10,6 @@ const navLinks = [
   { label: "Case Studies", path: "/case-studies" },
   { label: "Resources", path: "/resources" },
   { label: "Careers", path: "/careers" },
-  { label: "Contact", path: "/contact" },
 ];
 
 export default function Navbar() {
@@ -76,7 +75,7 @@ export default function Navbar() {
               to="/contact"
               className="font-heading text-xs font-bold uppercase tracking-wide px-4 xl:px-5 py-2.5 rounded bg-primary text-primary-foreground no-underline whitespace-nowrap transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
             >
-              Get a Quote
+              Contact
             </Link>
           </li>
         </ul>
@@ -109,7 +108,7 @@ export default function Navbar() {
             to="/contact"
             className="block mt-4 text-center font-heading text-sm font-bold uppercase tracking-wide px-5 py-3 rounded bg-primary text-primary-foreground no-underline"
           >
-            Get a Quote
+            Contact
           </Link>
         </div>
       )}
