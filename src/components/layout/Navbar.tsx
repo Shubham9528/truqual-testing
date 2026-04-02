@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Industries", path: "/industries" },
   { label: "Case Studies", path: "/case-studies" },
   { label: "Resources", path: "/resources" },
+  { label: "Careers", path: "/careers" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -55,12 +56,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-1 list-none">
+        <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1 list-none flex-nowrap min-w-0">
           {navLinks.map((link) => (
             <li key={link.path}>
               <Link
                 to={link.path}
-                className={`font-heading text-xs font-semibold tracking-wide uppercase px-3 py-2 rounded transition-colors duration-200 no-underline ${
+                className={`font-heading text-xs font-semibold tracking-wide uppercase px-2 xl:px-3 py-2 rounded transition-colors duration-200 no-underline whitespace-nowrap ${
                   location.pathname === link.path
                     ? "text-amber"
                     : "text-slate-300 hover:text-amber hover:bg-white/5"
@@ -70,10 +71,10 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-          <li className="ml-2">
+          <li className="hidden xl:block ml-2">
             <Link
               to="/contact"
-              className="font-heading text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded bg-primary text-primary-foreground no-underline transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
+              className="font-heading text-xs font-bold uppercase tracking-wide px-4 xl:px-5 py-2.5 rounded bg-primary text-primary-foreground no-underline whitespace-nowrap transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
             >
               Get a Quote
             </Link>

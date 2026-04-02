@@ -10,6 +10,7 @@ import ServicesPage from "@/components/pages/ServicesPage";
 import IndustriesPage from "@/components/pages/IndustriesPage";
 import CaseStudiesPage from "@/components/pages/CaseStudiesPage";
 import ResourcesPage from "@/components/pages/ResourcesPage";
+import CareersPage from "@/components/pages/CareersPage";
 import ContactPage from "@/components/pages/ContactPage";
 import NotFound from "@/components/pages/NotFound";
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/industries" element={<IndustriesPage />} />
             <Route path="/case-studies" element={<CaseStudiesPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/careers" element={<CareersPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
