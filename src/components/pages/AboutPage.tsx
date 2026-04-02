@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { ShieldCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import PageBanner from "@/components/PageBanner";
-import SectionLabel from "@/components/SectionLabel";
+import PageBanner from "@/components/layout/PageBanner";
+import SectionLabel from "@/components/layout/SectionLabel";
 import {
   values,
   missionVision,

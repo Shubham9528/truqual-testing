@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import PageBanner from "@/components/PageBanner";
-import SectionLabel from "@/components/SectionLabel";
+import PageBanner from "@/components/layout/PageBanner";
+import SectionLabel from "@/components/layout/SectionLabel";
 import { toast } from "sonner";
 import { contactInfo, serviceOptions } from "@/components/pages/constant/contact.data";
 export default function ContactPage() {

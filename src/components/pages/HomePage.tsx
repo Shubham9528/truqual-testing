@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import SectionLabel from "@/components/SectionLabel";
+import SectionLabel from "@/components/layout/SectionLabel";
 import heroBg from "@/assets/hero-bg.jpg";
 import { services, stats, processSteps, truqualvesPillars, deliverables } from "@/components/pages/constant/home.data";
 
