@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/PageBanner";
 import SectionLabel from "@/components/SectionLabel";
-import { cases } from "@/pages/constant/caseStudies.data";
+import { cases } from "@/components/pages/constant/caseStudies.data";
 
 export default function CaseStudiesPage() {
   useScrollReveal();

@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import heroBg from "@/assets/hero-bg.jpg";
-import { services, stats, processSteps, truqualvesPillars, deliverables } from "@/pages/constant/home.data";
+import { services, stats, processSteps, truqualvesPillars, deliverables } from "@/components/pages/constant/home.data";
 
 export default function HomePage() {
   useScrollReveal();

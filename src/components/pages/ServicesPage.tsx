@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/PageBanner";
 import SectionLabel from "@/components/SectionLabel";
-import { allServices } from "@/pages/constant/services.data";
+import { allServices } from "@/components/pages/constant/services.data";
 
 export default function ServicesPage() {
   useScrollReveal();

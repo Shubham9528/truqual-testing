@@ -10,7 +10,7 @@ import {
   frameworks,
   milestones,
   team,
-} from "@/pages/constant/about.data";
+} from "@/components/pages/constant/about.data";
 
 export default function AboutPage() {
   useScrollReveal();

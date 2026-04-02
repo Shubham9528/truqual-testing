@@ -4,13 +4,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HomePage from "@/pages/HomePage";
-import AboutPage from "@/pages/AboutPage";
-import ServicesPage from "@/pages/ServicesPage";
-import IndustriesPage from "@/pages/IndustriesPage";
-import CaseStudiesPage from "@/pages/CaseStudiesPage";
-import ContactPage from "@/pages/ContactPage";
-import NotFound from "@/pages/NotFound";
+import HomePage from "@/components/pages/HomePage";
+import AboutPage from "@/components/pages/AboutPage";
+import ServicesPage from "@/components/pages/ServicesPage";
+import IndustriesPage from "@/components/pages/IndustriesPage";
+import CaseStudiesPage from "@/components/pages/CaseStudiesPage";
+import ContactPage from "@/components/pages/ContactPage";
+import NotFound from "@/components/pages/NotFound";
 
 const queryClient = new QueryClient();
 

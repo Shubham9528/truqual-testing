@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/PageBanner";
 import SectionLabel from "@/components/SectionLabel";
-import { industries } from "@/pages/constant/industries.data";
+import { industries } from "@/components/pages/constant/industries.data";
 
 export default function IndustriesPage() {
   useScrollReveal();

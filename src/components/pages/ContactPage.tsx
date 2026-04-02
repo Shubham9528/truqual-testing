@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/PageBanner";
 import SectionLabel from "@/components/SectionLabel";
 import { toast } from "sonner";
-import { contactInfo, serviceOptions } from "@/pages/constant/contact.data";
+import { contactInfo, serviceOptions } from "@/components/pages/constant/contact.data";
 export default function ContactPage() {
   useScrollReveal();
   useEffect(() => { window.scrollTo(0, 0); }, []);
