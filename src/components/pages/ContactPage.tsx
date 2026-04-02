@@ -40,7 +40,7 @@ export default function ContactPage() {
               <div className="space-y-5 mb-8">
                 {contactInfo.map((item) => (
                   <div key={item.title} className="flex gap-3 items-start">
-                    <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center flex-shrink-0">
                       <item.icon size={18} className="text-amber" />
                     </div>
                     <div>
