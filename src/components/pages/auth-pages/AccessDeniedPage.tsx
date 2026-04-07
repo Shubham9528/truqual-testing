@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../../hooks/useAuth';
 
 export default function AccessDeniedPage() {
   const { currentUser, userProfile, loading, logout } = useAuth();

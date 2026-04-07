@@ -17,8 +17,8 @@ const CareersPage = lazy(() => import("@/components/pages/CareersPage"));
 const ContactPage = lazy(() => import("@/components/pages/ContactPage"));
 const LoginPage = lazy(() => import("@/components/pages/auth-pages/LoginPage"));
 const RegisterPage = lazy(() => import("@/components/pages/auth-pages/RegisterPage"));
-const ApprovalPendingPage = lazy(() => import("@/components/pages/ApprovalPendingPage"));
-const AccessDeniedPage = lazy(() => import("@/components/pages/AccessDeniedPage"));
+const ApprovalPendingPage = lazy(() => import("@/components/pages/auth-pages/ApprovalPendingPage"));
+const AccessDeniedPage = lazy(() => import("@/components/pages/auth-pages/AccessDeniedPage"));
 const Dashboard = lazy(() => import("@/dashboard/App"));
 const NotFound = lazy(() => import("@/components/pages/NotFound"));
 
