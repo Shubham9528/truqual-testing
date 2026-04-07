@@ -208,7 +208,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== WHY TRUQUALVES ===== */}
+      {/* ===== WHY TRUQUAL ===== */}
       <section className="section-padding relative overflow-hidden bg-background">
         {/* <div
           className="pointer-events-none absolute inset-0 opacity-100"
@@ -237,7 +237,7 @@ export default function HomePage() {
                 }}
               /> */}
               <div className="relative">
-                <SectionLabel label="Why TruQualVES" />
+                <SectionLabel label="Why TruQual" />
                 <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-foreground max-w-xl mb-4">
                   Built for regulated teams that need speed, proof, and zero ambiguity.
                 </h2>
@@ -263,7 +263,7 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-center sm:justify-center">
                   <Link
                     to="/about"
                     className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-heading font-bold uppercase tracking-wide text-primary-foreground no-underline transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.97]"
@@ -271,10 +271,6 @@ export default function HomePage() {
                     Explore Our Approach
                     <ArrowRight size={16} />
                   </Link>
-                  <div className="inline-flex items-center justify-center sm:justify-start gap-2 rounded-full border border-border/80 bg-secondary/60 px-4 py-3 text-xs font-heading font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    <Sparkles size={14} className="text-green" />
-                    Validation Expert Services
-                  </div>
                 </div>
               </div>
             </div>
