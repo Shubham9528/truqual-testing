@@ -53,14 +53,14 @@ export const frameworks = [
   "ICH Q8 / Q9 / Q10 / Q11",
   "GAMP 5 & risk-based CSV",
   "ISO 13485 & 21 CFR Part 820",
-  "ALCOA+ & data integrity",
+  "ALCOA+",
 ];
 
 export const milestones = [
   { year: "2008", label: "Founded", text: "Truqual begins supporting pharma and biotech validation programs." },
-  { year: "2014", label: "Global expansion", text: "EU GMP and multi-site deployment projects across APAC and North America." },
-  { year: "2019", label: "CSV center of excellence", text: "Dedicated GAMP 5 CSV practice for ERP, LIMS, MES, and critical infrastructure." },
-  { year: "Today", label: "Full-lifecycle partner", text: "CQV, remediation, and inspection readiness for innovators and established manufacturers." },
+  // { year: "2014", label: "Global expansion", text: "EU GMP and multi-site deployment projects across APAC and North America." },
+  // { year: "2019", label: "CSV center of excellence", text: "Dedicated GAMP 5 CSV practice for ERP, LIMS, MES, and critical infrastructure." },
+  // { year: "Today", label: "Full-lifecycle partner", text: "CQV, remediation, and inspection readiness for innovators and established manufacturers." },
 ];
 
 export const team = [
