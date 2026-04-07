@@ -20,10 +20,10 @@ export const services = [
 ];
 
 export const stats = [
-  { value: "150+", label: "Projects Delivered" },
-  { value: "47", label: "Enterprise Clients" },
+  { value: "10+", label: "Projects Delivered" },
+  { value: "15+", label: "Enterprise Clients" },
   { value: "98.3%", label: "Audit Pass Rate" },
-  { value: "15+", label: "Years Expertise" },
+  { value: "2+", label: "Years Expertise" },
 ];
 
 export const processSteps = [
