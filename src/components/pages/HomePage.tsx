@@ -39,7 +39,7 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 bg-white/5 border border-amber/30 rounded-full px-4 py-1.5 mb-6">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
                 <span className="font-heading text-xs font-bold tracking-wider uppercase text-amber">
-                  ISO Certified Experts
+                  Expert Services
                 </span>
               </div>
 
