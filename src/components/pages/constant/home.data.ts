@@ -68,3 +68,40 @@ export const deliverables = [
   "Gap assessments and remediation plans for inspections and audits",
   "Standard operating procedures and training support for operational readiness",
 ];
+
+export interface ClientTestimonial {
+  quote: string;
+  name: string;
+  role: string;
+  initials: string;
+}
+
+export const clientTestimonials: ClientTestimonial[] = [
+  {
+    quote:
+      "Our FDA inspection was the smoothest we've had in 12 years. The documentation package TruQual delivered had zero observations against it. We've never felt that confident walking into an audit.",
+    name: "Sarah R.",
+    role: "VP Quality - Specialty Pharma, NJ",
+    initials: "SR",
+  },
+  {
+    quote:
+      "We were 6 weeks behind on a critical CSV project. TruQual embedded with our team, got up to speed in days, and we hit our go-live date. The traceability matrix alone saved us weeks of back-and-forth with QA.",
+    name: "Marcus P.",
+    role: "Director IT Compliance - Biotech, MA",
+    initials: "MP",
+  },
+  {
+    quote:
+      "What set them apart was that they understood both the regulatory side and the operational side. We didn't have to translate between QA and engineering - TruQual bridged it naturally.",
+    name: "Jennifer L.",
+    role: "Head of Operations - Medical Devices, CA",
+    initials: "JL",
+  },
+];
+
+export const clientTrustSignals = [
+  "No commitment required",
+  "Response within 1 business day",
+  "NDA available on request",
+];

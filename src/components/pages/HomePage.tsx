@@ -1,10 +1,27 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles, Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import SectionLabel from "@/components/layout/SectionLabel";
 import heroBg from "@/assets/hero-bg.jpg";
-import { services, stats, processSteps, truqualvesPillars, deliverables } from "@/components/pages/constant/home.data";
+import {
+  services,
+  stats,
+  processSteps,
+  truqualvesPillars,
+  deliverables,
+  clientTestimonials,
+} from "@/components/pages/constant/home.data";
+
+function StarRating() {
+  return (
+    <div className="flex items-center gap-0.5 mb-4">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} size={13} className="text-amber fill-amber" />
+      ))}
+    </div>
+  );
+}
 
 export default function HomePage() {
   useScrollReveal();
@@ -209,7 +226,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== WHY TRUQUAL ===== */}
-      <section className="section-padding relative overflow-hidden bg-background">
+      <section className="py-12 md:py-16 relative overflow-hidden bg-background">
         {/* <div
           className="pointer-events-none absolute inset-0 opacity-100"
           style={{
@@ -228,7 +245,7 @@ export default function HomePage() {
 
         <div className="container-narrow relative z-10">
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
-            <div className="reveal relative overflow-hidden rounded-[28px] border border-border/80 bg-white p-6 sm:p-8 md:p-10 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+            <div className="reveal relative overflow-hidden rounded-[28px] border border-border/80 bg-white p-6 md:p-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
               {/* <div
                 className="absolute inset-0 opacity-100"
                 style={{
@@ -279,7 +296,7 @@ export default function HomePage() {
               {truqualvesPillars.map((pillar, index) => (
                 <div
                   key={pillar.title}
-                  className={`reveal relative overflow-hidden rounded-[24px] border p-6 sm:p-7 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ${
+                  className={`reveal relative overflow-hidden rounded-[24px] border p-5 md:p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ${
                     index === 1
                       ? "border-accent/30 bg-white"
                       : "border-border/80 bg-white/90"
@@ -310,7 +327,7 @@ export default function HomePage() {
                 </div>
               ))}
 
-              <div className="reveal grid grid-cols-3 gap-3 rounded-[24px] border border-border/80 bg-white p-4 sm:p-5 shadow-[0_18px_45px_rgba(15,23,42,0.06)]">
+              <div className="reveal grid grid-cols-3 gap-3 rounded-[24px] border border-border/80 bg-white p-4 md:p-5 shadow-[0_18px_45px_rgba(15,23,42,0.06)]">
                 {[
                   ["GMP", "Aligned"],
                   ["CSV", "Structured"],
@@ -332,10 +349,10 @@ export default function HomePage() {
       </section>
 
       {/* ===== DELIVERABLES ===== */}
-      <section className="section-padding bg-background">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container-narrow">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-stretch">
-            <div className="reveal-left bg-card border border-border rounded-2xl p-8 md:p-10 shadow-lg">
+            <div className="reveal-left bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg">
               <SectionLabel label="What You Receive" />
               <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-4 leading-tight">
                 Deliverables That Stand Up to Review
@@ -358,7 +375,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="reveal-right relative overflow-hidden rounded-2xl border border-border bg-card p-8 md:p-10 shadow-lg">
+            <div className="reveal-right relative overflow-hidden rounded-2xl border border-border bg-card p-6 md:p-8 shadow-lg">
               {/* <div
                 className="absolute inset-0 opacity-100"
                 style={{
@@ -404,38 +421,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== NEWSLETTER CTA ===== */}
-      {/* <section className="section-padding relative overflow-hidden bg-navy-mid border-t border-amber/25 text-white">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-70"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse 90% 80% at 50% -20%, hsla(103,62%,59%,0.12) 0%, transparent 55%), radial-gradient(ellipse 70% 50% at 100% 100%, hsla(37,91%,53%,0.08) 0%, transparent 45%)",
-          }}
-        />
-        <div className="relative z-10 max-w-xl mx-auto text-center reveal">
-          <SectionLabel label="Stay Informed" />
-          <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-white mb-3">
-            Stay Ahead of Compliance.
-          </h2>
-          <p className="text-slate-light leading-relaxed mb-6">
-            Get the latest regulatory updates, validation insights, and industry news — delivered to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-md bg-white/10 border border-white/15 text-white text-sm placeholder:text-slate-light/80 focus:border-accent focus:ring-1 focus:ring-accent/40 focus:outline-none"
-            />
-            <button
-              type="button"
-              className="px-6 py-3 rounded-md bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide hover:opacity-90 transition-opacity active:scale-[0.97] flex-shrink-0"
-            >
-              Subscribe
-            </button>
+      {/* ===== CLIENT RESULTS ===== */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="reveal text-center max-w-2xl mx-auto mb-12">
+            <SectionLabel label="Client Results" />
+            <h2 className="font-heading font-extrabold text-2xl md:text-3xl text-foreground mb-3 leading-tight">
+              Trusted by Regulated Teams Across the Lifecycle
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              From first qualification to post-market surveillance - here's what
+              teams say after working with TruQual.
+            </p>
+            <div className="h-[3px] w-14 gradient-bar rounded-full mt-5 mx-auto" />
           </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children mb-16">
+            {clientTestimonials.map((t) => (
+              <div
+                key={t.name}
+                className="reveal group relative bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 hover:border-accent overflow-hidden flex flex-col"
+              >
+                <div className="absolute top-0 left-0 right-0 h-[3px] gradient-bar origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+
+                <StarRating />
+
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
+                  "{t.quote}"
+                </p>
+
+                <div className="flex items-center gap-3 pt-5 border-t border-border/60">
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center font-heading font-bold text-xs flex-shrink-0 bg-amber/10 text-amber border border-amber/20"
+                  >
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="font-heading font-bold text-sm text-foreground leading-tight">
+                      {t.name}
+                    </div>
+                    <div className="text-[11px] text-muted-foreground mt-0.5">
+                      {t.role}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
-      </section> */}
+      </section>
     </>
   );
 }
