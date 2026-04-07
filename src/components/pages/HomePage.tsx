@@ -405,7 +405,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== NEWSLETTER CTA ===== */}
-      <section className="section-padding relative overflow-hidden bg-navy-mid border-t border-amber/25 text-white">
+      {/* <section className="section-padding relative overflow-hidden bg-navy-mid border-t border-amber/25 text-white">
         <div
           className="pointer-events-none absolute inset-0 opacity-70"
           style={{
@@ -435,7 +435,7 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
