@@ -10,6 +10,7 @@ import ProtectedRoute from "@/components/routes/ProtectedRoute";
 const HomePage = lazy(() => import("@/components/pages/HomePage"));
 const AboutPage = lazy(() => import("@/components/pages/AboutPage"));
 const ServicesPage = lazy(() => import("@/components/pages/ServicesPage"));
+const ServiceDetailsPage = lazy(() => import("@/components/pages/service-pages/ServiceDetailsPage"));
 const IndustriesPage = lazy(() => import("@/components/pages/IndustriesPage"));
 const CaseStudiesPage = lazy(() => import("@/components/pages/CaseStudiesPage"));
 const ResourcesPage = lazy(() => import("@/components/pages/ResourcesPage"));
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetailsPage />} />
           <Route path="/industries" element={<IndustriesPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/resources" element={<ResourcesPage />} />

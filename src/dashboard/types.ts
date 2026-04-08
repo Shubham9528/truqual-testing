@@ -26,7 +26,7 @@ export interface BlogPost {
   image: string;
 }
 
-export type ViewType = 'Dashboard' | 'Blogs' | 'Users' | 'Events' | 'Settings' | 'Support';
+export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Users' | 'Events' | 'Settings' | 'Support';
 
 export interface User {
   _id: string;
@@ -54,6 +54,27 @@ export interface BackendBlog {
     elaborated: string;
     quote: string;
     conclusion: string;
+  };
+}
+
+export interface BackendService {
+  id: number;
+  slug: string;
+  title: string;
+  shortDescription: string;
+  heroImage?: string;
+  iconKey?: string;
+  category?: string[];
+  featured?: boolean;
+  status?: 'draft' | 'published';
+  displayOrder?: number;
+  contentBody?: {
+    overview?: string;
+    scope?: string;
+    methodology?: string;
+    deliverables?: string[];
+    faq?: { question: string; answer: string }[];
+    conclusion?: string;
   };
 }
 

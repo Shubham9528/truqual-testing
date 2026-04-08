@@ -30,7 +30,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="bg-white text-gray-500 max-w-96 w-full mx-4 md:p-6 p-4 text-left text-sm rounded-xl shadow-[0px_0px_10px_0px] shadow-black/10">
         <div className="flex justify-center mb-4">
-          <img className="h-20" src="/assets/logo.png" alt="Truqualves logo" />
+          <img className="h-20" src="/logo.png" alt="Truqualves logo" />
         </div>
         <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">Welcome back</h2>
 

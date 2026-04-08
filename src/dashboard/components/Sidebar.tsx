@@ -16,7 +16,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
 
   const mainNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
     { label: 'Dashboard', icon: 'LayoutDashboard' },
-    { label: 'Blogs', icon: 'BookOpen' }
+    { label: 'Blogs', icon: 'BookOpen' },
+    { label: 'Services', icon: 'Wrench' }
   ];
 
   // Add Users menu for superadmin only
@@ -78,8 +79,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
     >
       <div className="flex flex-col h-full w-64 lg:w-auto">
             {/* Logo Section */}
-        <div className="h-16 flex items-center px-6 border-b border-slate-100 shrink-0">
-          <img src="/assets/logo.png" alt="TruQual" className="w-12 h-12 object-contain shrink-0" />
+        <div className="h-20 flex items-center px-6 border-b border-slate-100 shrink-0">
+          <img src="/logo.png" alt="TruQual" className="w-20 h-20 object-contain shrink-0" />
           <span className={`font-urbanist font-extrabold text-2xl  text-slate-800 tracking-tight transition-all duration-200
             ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>
             TruQual

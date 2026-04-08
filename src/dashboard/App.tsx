@@ -6,6 +6,7 @@ import { ICONS } from './constants';
 
 const DashboardView = lazy(() => import('./views/DashboardView'));
 const BlogsView = lazy(() => import('./views/BlogsView'));
+const ServicesView = lazy(() => import('./views/ServicesView'));
 const UserManagementView = lazy(() => import('./views/UserManagementView'));
 const EventsView = lazy(() => import('./views/EventsView'));
 
@@ -50,6 +51,8 @@ const App: React.FC = () => {
         return <DashboardView />;
       case 'Blogs':
         return <BlogsView />;
+      case 'Services':
+        return <ServicesView />;
       case 'Users':
         return <UserManagementView />;
       case 'Events':

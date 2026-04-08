@@ -1,23 +1,8 @@
-import {
-  Shield,
-  Monitor,
-  Wrench,
-  FlaskConical,
-  ClipboardCheck,
-  GraduationCap,
+﻿import {
   Radar,
   FileCheck2,
   Layers3,
 } from "lucide-react";
-
-export const services = [
-  { icon: Wrench, title: "Process Validation", desc: "Full lifecycle validation including prospective, concurrent, and retrospective approaches with complete documentation." },
-  { icon: Monitor, title: "Computer System Validation", desc: "GAMP 5-based CSV for ERP, LIMS, DCS, SCADA and all GxP-critical computerized systems." },
-  { icon: Shield, title: "Equipment Qualification", desc: "IQ, OQ, PQ and DQ protocols for manufacturing equipment, utilities, and lab instruments." },
-  { icon: FlaskConical, title: "Method Validation", desc: "Analytical method validation per ICH Q2(R1) ” accuracy, precision, specificity, linearity." },
-  { icon: ClipboardCheck, title: "Regulatory Compliance", desc: "Mock inspections, gap assessments, and pre-regulatory audit preparations aligned with global standards." },
-  { icon: GraduationCap, title: "Training & Workshops", desc: "Customized programs on GMP, GDP, validation best practices, and regulatory requirements." },
-];
 
 export const stats = [
   { value: "10+", label: "Projects Delivered" },
@@ -105,3 +90,4 @@ export const clientTrustSignals = [
   "Response within 1 business day",
   "NDA available on request",
 ];
+
