@@ -18,7 +18,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
     { label: 'Dashboard', icon: 'LayoutDashboard' },
     { label: 'Blogs', icon: 'BookOpen' },
     { label: 'Services', icon: 'Wrench' },
-    { label: 'Case Studies', icon: 'FileText' }
+    { label: 'Case Studies', icon: 'FileText' },
+    { label: 'Team', icon: 'Users' }
   ];
 
   // Add Users menu for superadmin only

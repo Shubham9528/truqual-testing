@@ -26,7 +26,7 @@ export interface BlogPost {
   image: string;
 }
 
-export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Users' | 'Events' | 'Settings' | 'Support';
+export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Team' | 'Users' | 'Events' | 'Settings' | 'Support';
 
 export interface User {
   _id: string;
@@ -86,6 +86,14 @@ export interface BackendCaseStudy {
   challenge: string;
   approach: string;
   result: string;
+}
+
+export interface BackendTeamMember {
+  _id: string;
+  name: string;
+  role: string;
+  desc: string;
+  image: string;
 }
 
 export type EventStatus = 'new_request' | 'active' | 'completed' | 'cancelled';

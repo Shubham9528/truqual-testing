@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ShieldCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useTeamQuery } from "@/hooks/useTeamQuery";
 import PageBanner from "@/components/layout/PageBanner";
 import SectionLabel from "@/components/layout/SectionLabel";
 import {
@@ -9,11 +10,12 @@ import {
   howWePartner,
   frameworks,
   milestones,
-  team,
 } from "@/components/pages/constant/about.data";
 
 export default function AboutPage() {
-  useScrollReveal();
+  const { data: teamMembers = [], isLoading: isTeamLoading, isError: isTeamError } = useTeamQuery();
+
+  useScrollReveal([isTeamLoading, teamMembers.length]);
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
@@ -194,25 +196,53 @@ export default function AboutPage() {
             <div className="h-[3px] w-14 gradient-bar rounded-full mt-4" />
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
-            {team.map((t) => (
-              <div
-                key={t.name}
-                className="reveal rounded-xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 bg-card"
-              >
-                <div className="h-32 bg-secondary flex items-center justify-center">
-                  <span className="font-heading font-extrabold text-3xl text-amber">{t.initials}</span>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-heading font-bold text-base mb-0.5">{t.name}</h3>
-                  <div className="text-amber font-heading font-bold text-xs uppercase tracking-wide mb-2">
-                    {t.role}
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
-                </div>
+          {isTeamLoading ? (
+            <div className="rounded-xl border border-border bg-card p-10">
+              <div className="flex flex-col items-center justify-center gap-3">
+                <div className="h-10 w-10 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
+                <p className="text-sm text-muted-foreground">Loading team members...</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ) : null}
+
+          {!isTeamLoading && isTeamError ? (
+            <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-6 text-sm text-destructive">
+              Unable to load team members right now. Please try again shortly.
+            </div>
+          ) : null}
+
+          {!isTeamLoading && !isTeamError && teamMembers.length === 0 ? (
+            <div className="rounded-xl border border-border bg-card p-6 text-sm text-muted-foreground">
+              No team members are available yet.
+            </div>
+          ) : null}
+
+          {!isTeamLoading && !isTeamError && teamMembers.length > 0 ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+              {teamMembers.map((member) => (
+                <div
+                  key={member._id}
+                  className="reveal rounded-xl border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 bg-card"
+                >
+                  <div className="aspect-[3/2] bg-secondary overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-heading font-bold text-base mb-0.5">{member.name}</h3>
+                    <div className="text-amber font-heading font-bold text-xs uppercase tracking-wide mb-2">
+                      {member.role}
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{member.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
     </>
