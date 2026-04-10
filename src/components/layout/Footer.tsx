@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "sonner";
 
 const footerLinks = {
   services: [
@@ -22,6 +25,36 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleNewsletterSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const email = newsletterEmail.trim();
+    if (!email) {
+      toast.error("Please enter your email address.");
+      return;
+    }
+
+    setIsSubscribing(true);
+    try {
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/newsletter/subscribe`, {
+        email,
+      });
+      toast.success(data?.message || "Subscribed successfully.");
+      setNewsletterEmail("");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        toast.error(error.response?.data?.message || "Failed to subscribe.");
+      } else {
+        toast.error("Failed to subscribe.");
+      }
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   return (
     <footer className="bg-[hsl(213,42%,7%)] pt-16 pb-8">
       <div className="container-narrow px-6">
@@ -87,14 +120,24 @@ export default function Footer() {
             <p className="text-sm text-slate-400 mb-3">
               Get regulatory updates and validation insights.
             </p>
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="w-full px-3 py-2.5 rounded-md bg-white/5 border border-white/10 text-white text-sm placeholder:text-slate-500 focus:border-accent focus:outline-none mb-2"
-            />
-            <button className="w-full py-2.5 rounded-md bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wide hover:opacity-90 transition-opacity active:scale-[0.97]">
-              Subscribe
-            </button>
+            <form onSubmit={handleNewsletterSubscribe}>
+              <input
+                type="email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder="Your email address"
+                className="w-full px-3 py-2.5 rounded-md bg-white/5 border border-white/10 text-white text-sm placeholder:text-slate-500 focus:border-accent focus:outline-none mb-2"
+                required
+                disabled={isSubscribing}
+              />
+              <button
+                type="submit"
+                className="w-full py-2.5 rounded-md bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wide hover:opacity-90 transition-opacity active:scale-[0.97] disabled:opacity-70 disabled:cursor-not-allowed"
+                disabled={isSubscribing}
+              >
+                {isSubscribing ? "Subscribing..." : "Subscribe"}
+              </button>
+            </form>
           </div>
         </div>
 

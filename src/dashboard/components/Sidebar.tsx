@@ -23,6 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
 
   const requestNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
     { label: 'Events', icon: 'Bell' },
+    { label: 'Newsletter', icon: 'Mail' },
   ];
 
   const servicesNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [

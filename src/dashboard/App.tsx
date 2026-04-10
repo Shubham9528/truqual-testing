@@ -14,6 +14,7 @@ const JobOpeningsView = lazy(() => import('./views/JobOpeningsView'));
 const CandidateInfoView = lazy(() => import('./views/CandidateInfoView'));
 const UserManagementView = lazy(() => import('./views/UserManagementView'));
 const EventsView = lazy(() => import('./views/EventsView'));
+const NewsletterView = lazy(() => import('./views/NewsletterView'));
 
 const PlaceholderView: React.FC<{ title: string; description: string }> = ({ title, description }) => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col items-center justify-center py-20 bg-white rounded-3xl border border-slate-100 shadow-sm px-6 text-center">
@@ -72,6 +73,8 @@ const App: React.FC = () => {
         return <UserManagementView />;
       case 'Events':
         return <EventsView />;
+      case 'Newsletter':
+        return <NewsletterView />;
       case 'Settings':
         return <PlaceholderView title="Account Settings" description="Manage your compliance profile, notification preferences, and API integration keys here." />;
       case 'Support':
@@ -100,7 +103,7 @@ const App: React.FC = () => {
         ${isSidebarOpen ? 'lg:ml-64' : 'lg:ml-20'}`}>
         <Header activeView={activeView} toggleSidebar={toggleSidebar} />
         
-        <main className={`p-4 md:p-8 w-full ${activeView === 'Events' || activeView === 'Candidate Info' ? 'max-w-none' : 'max-w-7xl mx-auto'}`}>
+        <main className={`p-4 md:p-8 w-full ${activeView === 'Events' || activeView === 'Candidate Info' || activeView === 'Newsletter' ? 'max-w-none' : 'max-w-7xl mx-auto'}`}>
           <Suspense
             fallback={
               <div className="flex min-h-[280px] items-center justify-center rounded-2xl border border-slate-100 bg-white text-slate-500 shadow-sm">

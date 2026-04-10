@@ -26,7 +26,7 @@ export interface BlogPost {
   image: string;
 }
 
-export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Team' | 'Contact' | 'Job Openings' | 'Candidate Info' | 'Users' | 'Events' | 'Settings' | 'Support';
+export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Team' | 'Contact' | 'Job Openings' | 'Candidate Info' | 'Users' | 'Events' | 'Newsletter' | 'Settings' | 'Support';
 
 export interface User {
   _id: string;
@@ -171,4 +171,13 @@ export interface EventSummaryTotals {
   active: number;
   completed: number;
   complianceScore: number;
+}
+
+export interface BackendNewsletterSubscriber {
+  _id: string;
+  email: string;
+  status: 'subscribed' | 'unsubscribed';
+  unsubscribeToken: string;
+  createdAt: string;
+  updatedAt: string;
 }
