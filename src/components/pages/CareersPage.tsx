@@ -1,17 +1,28 @@
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/layout/PageBanner";
 import SectionLabel from "@/components/layout/SectionLabel";
-import { careerBenefits, openRoles, roleMetaIcons } from "@/components/pages/constant/careers.data";
+import { useJobOpeningsQuery } from "@/hooks/useJobOpeningsQuery";
+import { careerBenefits, roleMetaIcons } from "@/components/pages/constant/careers.data";
+import type { JobOpening } from "@/types/jobOpening";
+import ApplyJobDialog from "@/components/pages/careers/ApplyJobDialog";
 
 export default function CareersPage() {
-  useScrollReveal();
+  const { data: jobOpenings = [], isLoading, isError } = useJobOpeningsQuery();
+  useScrollReveal([isLoading, jobOpenings.length]);
+  const [isApplyDialogOpen, setIsApplyDialogOpen] = useState(false);
+  const [selectedOpening, setSelectedOpening] = useState<JobOpening | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleApplyClick = (opening: JobOpening) => {
+    setSelectedOpening(opening);
+    setIsApplyDialogOpen(true);
+  };
 
   return (
     <>
@@ -54,44 +65,72 @@ export default function CareersPage() {
           </div>
 
           <div className="space-y-4 stagger-children">
-            {openRoles.map((role) => (
-              <div
-                key={role.title}
-                className="reveal bg-card border border-border rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:border-accent"
-              >
-                <div>
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-2">{role.title}</h3>
-                  <div className="flex flex-wrap gap-2.5">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
-                      <roleMetaIcons.location size={13} className="text-amber" />
-                      {role.location}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
-                      <roleMetaIcons.type size={13} className="text-amber" />
-                      {role.type}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
-                      <roleMetaIcons.experience size={13} className="text-amber" />
-                      {role.experience}
-                    </span>
-                    <span className="inline-flex items-center text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
-                      {role.focus}
-                    </span>
-                  </div>
-                </div>
-
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wide no-underline hover:opacity-90 transition-opacity md:self-start"
-                >
-                  Apply Now
-                  <ArrowRight size={14} />
-                </Link>
+            {isLoading ? (
+              <div className="rounded-xl border border-border bg-card p-6 text-sm text-muted-foreground">
+                Loading job openings...
               </div>
-            ))}
+            ) : null}
+
+            {!isLoading && isError ? (
+              <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-6 text-sm text-destructive">
+                Unable to load job openings right now. Please try again shortly.
+              </div>
+            ) : null}
+
+            {!isLoading && !isError && jobOpenings.length === 0 ? (
+              <div className="rounded-xl border border-border bg-card p-6 text-sm text-muted-foreground">
+                No openings available at the moment.
+              </div>
+            ) : null}
+
+            {!isLoading && !isError && jobOpenings.length > 0
+              ? jobOpenings.map((role) => (
+                  <div
+                    key={role._id}
+                    className="reveal bg-card border border-border rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:border-accent"
+                  >
+                    <div>
+                      <h3 className="font-heading font-bold text-lg text-foreground mb-2">{role.title}</h3>
+                      <div className="flex flex-wrap gap-2.5">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
+                          <roleMetaIcons.location size={13} className="text-amber" />
+                          {role.location}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
+                          <roleMetaIcons.type size={13} className="text-amber" />
+                          {role.type}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
+                          <roleMetaIcons.experience size={13} className="text-amber" />
+                          {role.experience}
+                        </span>
+                        <span className="inline-flex items-center text-xs font-heading font-semibold px-3 py-1.5 rounded-full border border-border bg-secondary/40 text-foreground">
+                          {role.skills}
+                        </span>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => handleApplyClick(role)}
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wide no-underline hover:opacity-90 transition-opacity md:self-start"
+                    >
+                      Apply Now
+                      <ArrowRight size={14} />
+                    </button>
+                  </div>
+                ))
+              : null}
           </div>
         </div>
       </section>
+
+      <ApplyJobDialog
+        isOpen={isApplyDialogOpen}
+        selectedOpening={selectedOpening}
+        openings={jobOpenings}
+        onClose={() => setIsApplyDialogOpen(false)}
+      />
     </>
   );
 }

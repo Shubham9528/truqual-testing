@@ -20,7 +20,8 @@ import {
   X,
   Trash2,
   MessageSquare,
-  Wrench
+  Wrench,
+  Briefcase
 } from 'lucide-react';
 import type { KPI, Activity as ActivityItem, BlogPost } from './types';
 
@@ -125,5 +126,6 @@ export const ICONS = {
   X,
   Trash2,
   MessageSquare,
-  Wrench
+  Wrench,
+  Briefcase
 };

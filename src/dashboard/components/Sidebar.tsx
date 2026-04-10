@@ -23,6 +23,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
     { label: 'Contact', icon: 'MessageSquare' }
   ];
 
+  const careerNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
+    { label: 'Job Openings', icon: 'Briefcase' },
+    { label: 'Candidate Info', icon: 'Users' },
+  ];
+
   // Add Users menu for superadmin only
   if (userProfile?.role === 'superadmin') {
     mainNavItems.push({ label: 'Users', icon: 'Users' });
@@ -104,6 +109,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
               ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0'}`}>Main Menu</p>
             <nav className="space-y-1">
               {mainNavItems.map((item) => <NavButton key={item.label} item={item} />)}
+            </nav>
+          </div>
+
+          <div>
+            <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
+              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0'}`}>Career</p>
+            <nav className="space-y-1">
+              {careerNavItems.map((item) => <NavButton key={item.label} item={item} />)}
             </nav>
           </div>
 

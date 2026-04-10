@@ -10,6 +10,8 @@ const ServicesView = lazy(() => import('./views/ServicesView'));
 const CaseStudiesView = lazy(() => import('./views/CaseStudiesView'));
 const TeamView = lazy(() => import('./views/TeamView'));
 const ContactInfoView = lazy(() => import('./views/ContactInfoView'));
+const JobOpeningsView = lazy(() => import('./views/JobOpeningsView'));
+const CandidateInfoView = lazy(() => import('./views/CandidateInfoView'));
 const UserManagementView = lazy(() => import('./views/UserManagementView'));
 const EventsView = lazy(() => import('./views/EventsView'));
 
@@ -62,6 +64,10 @@ const App: React.FC = () => {
         return <TeamView />;
       case 'Contact':
         return <ContactInfoView />;
+      case 'Job Openings':
+        return <JobOpeningsView />;
+      case 'Candidate Info':
+        return <CandidateInfoView />;
       case 'Users':
         return <UserManagementView />;
       case 'Events':
@@ -94,7 +100,7 @@ const App: React.FC = () => {
         ${isSidebarOpen ? 'lg:ml-64' : 'lg:ml-20'}`}>
         <Header activeView={activeView} toggleSidebar={toggleSidebar} />
         
-        <main className={`p-4 md:p-8 w-full ${activeView === 'Events' ? 'max-w-none' : 'max-w-7xl mx-auto'}`}>
+        <main className={`p-4 md:p-8 w-full ${activeView === 'Events' || activeView === 'Candidate Info' ? 'max-w-none' : 'max-w-7xl mx-auto'}`}>
           <Suspense
             fallback={
               <div className="flex min-h-[280px] items-center justify-center rounded-2xl border border-slate-100 bg-white text-slate-500 shadow-sm">

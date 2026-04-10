@@ -26,7 +26,7 @@ export interface BlogPost {
   image: string;
 }
 
-export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Team' | 'Contact' | 'Users' | 'Events' | 'Settings' | 'Support';
+export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Team' | 'Contact' | 'Job Openings' | 'Candidate Info' | 'Users' | 'Events' | 'Settings' | 'Support';
 
 export interface User {
   _id: string;
@@ -103,6 +103,45 @@ export interface BackendContactInfo {
   email?: string;
   businessHours?: string;
   consultationText?: string;
+}
+
+export interface BackendJobOpening {
+  _id: string;
+  title: string;
+  location: string;
+  type: string;
+  experience: string;
+  skills: string;
+}
+
+export type JobCandidateStatus = 'new_request' | 'shortlisted' | 'rejected';
+
+export const JOB_CANDIDATE_STATUS_OPTIONS: { value: JobCandidateStatus; label: string }[] = [
+  { value: 'new_request', label: 'New Request' },
+  { value: 'shortlisted', label: 'Shortlisted' },
+  { value: 'rejected', label: 'Rejected' },
+];
+
+export interface BackendJobCandidate {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  currentLocation: string;
+  totalExperience: string;
+  currentSalary: string;
+  expectedSalary: string;
+  roleAppliedFor: string;
+  jobOpeningId?: {
+    _id: string;
+    title: string;
+  } | null;
+  currentCompany?: string;
+  resumeLink?: string;
+  whyShouldWeHireYou?: string;
+  status: JobCandidateStatus;
+  createdAt: string;
 }
 
 export type EventStatus = 'new_request' | 'active' | 'completed' | 'cancelled';
