@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/layout/PageBanner";
 import SectionLabel from "@/components/layout/SectionLabel";
 import { toast } from "sonner";
-import { contactInfo } from "@/components/pages/constant/contact.data";
 import { useServicesQuery } from "@/hooks/useServicesQuery";
+import { useContactInfoQuery } from "@/hooks/useContactInfoQuery";
 export default function ContactPage() {
   useScrollReveal();
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const { data: services = [], isLoading: servicesLoading } = useServicesQuery();
+  const { data: contactInfo = {}, isLoading: contactInfoLoading } = useContactInfoQuery();
   const serviceOptions = services.map((service) => service.title);
+  const contactRows = [
+    { icon: MapPin, title: "Office Address", text: contactInfo.officeAddress },
+    { icon: Phone, title: "Phone", text: contactInfo.phone },
+    { icon: Mail, title: "Email", text: contactInfo.email },
+    { icon: Clock, title: "Business Hours", text: contactInfo.businessHours },
+  ].filter((item) => item.text);
 
   const [formData, setFormData] = useState({
     firstName: "", lastName: "", email: "", company: "", service: "", message: "",
@@ -41,7 +48,13 @@ export default function ContactPage() {
               <div className="h-[3px] w-14 gradient-bar rounded-full mb-8" />
 
               <div className="space-y-5 mb-8">
-                {contactInfo.map((item) => (
+                {contactInfoLoading ? (
+                  <p className="text-sm text-muted-foreground">Loading contact details...</p>
+                ) : null}
+                {!contactInfoLoading && contactRows.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">Contact details will be available soon.</p>
+                ) : null}
+                {contactRows.map((item) => (
                   <div key={item.title} className="flex gap-3 items-start">
                     <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center flex-shrink-0">
                       <item.icon size={18} className="text-amber" />
@@ -54,12 +67,14 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              <div className="p-4 bg-green-muted border border-accent/20 rounded-xl">
-                <h4 className="font-heading font-bold text-sm mb-1">🆓 Free Initial Consultation</h4>
-                <p className="text-sm text-muted-foreground">
-                  We offer a complimentary 30-minute consultation to discuss your validation challenges. No obligation.
-                </p>
-              </div>
+              {contactInfo.consultationText ? (
+                <div className="p-4 bg-green-muted border border-accent/20 rounded-xl">
+                  <h4 className="font-heading font-bold text-sm mb-1">✅ Initial Consultation</h4>
+                  <p className="text-sm text-muted-foreground">
+                    {contactInfo.consultationText}
+                  </p>
+                </div>
+              ) : null}
             </div>
 
             {/* Right — Form */}

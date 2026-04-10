@@ -9,6 +9,7 @@ const BlogsView = lazy(() => import('./views/BlogsView'));
 const ServicesView = lazy(() => import('./views/ServicesView'));
 const CaseStudiesView = lazy(() => import('./views/CaseStudiesView'));
 const TeamView = lazy(() => import('./views/TeamView'));
+const ContactInfoView = lazy(() => import('./views/ContactInfoView'));
 const UserManagementView = lazy(() => import('./views/UserManagementView'));
 const EventsView = lazy(() => import('./views/EventsView'));
 
@@ -59,6 +60,8 @@ const App: React.FC = () => {
         return <CaseStudiesView />;
       case 'Team':
         return <TeamView />;
+      case 'Contact':
+        return <ContactInfoView />;
       case 'Users':
         return <UserManagementView />;
       case 'Events':
