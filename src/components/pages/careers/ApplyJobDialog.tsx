@@ -220,7 +220,9 @@ export default function ApplyJobDialog({
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Resume Link</label>
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+                Resume Link (Google Drive, OneDrive, etc.)
+              </label>
               <input
                 name="resumeLink"
                 value={formData.resumeLink}
@@ -254,7 +256,7 @@ export default function ApplyJobDialog({
             </button>
             <button
               type="submit"
-              className="px-6 py-2.5 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl transition-all shadow-lg shadow-orange-200 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="px-6 py-2.5 text-sm font-bold bg-primary text-primary-foreground rounded-xl transition-all hover:opacity-90 disabled:opacity-70 disabled:cursor-not-allowed"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Submitting..." : "Submit Application"}

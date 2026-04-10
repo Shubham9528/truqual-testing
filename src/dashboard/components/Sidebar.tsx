@@ -14,13 +14,23 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isOpen, setIsOpen }) => {
   const { userProfile, currentUser, logout } = useAuth();
 
-  const mainNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
-    { label: 'Dashboard', icon: 'LayoutDashboard' },
+  const resourceNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
     { label: 'Blogs', icon: 'BookOpen' },
-    { label: 'Services', icon: 'Wrench' },
+    { label: 'Contact', icon: 'MessageSquare' },
     { label: 'Case Studies', icon: 'FileText' },
     { label: 'Team', icon: 'Users' },
-    { label: 'Contact', icon: 'MessageSquare' }
+  ];
+
+  const requestNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
+    { label: 'Events', icon: 'Bell' },
+  ];
+
+  const servicesNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
+    { label: 'Services', icon: 'Wrench' },
+  ];
+
+  const generalNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
+    { label: 'Dashboard', icon: 'LayoutDashboard' },
   ];
 
   const careerNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
@@ -30,12 +40,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
 
   // Add Users menu for superadmin only
   if (userProfile?.role === 'superadmin') {
-    mainNavItems.push({ label: 'Users', icon: 'Users' });
-  }
-
-  // Add Events menu for admin and superadmin
-  if (userProfile?.role === 'admin' || userProfile?.role === 'superadmin') {
-    mainNavItems.push({ label: 'Events', icon: 'Bell' });
+    generalNavItems.push({ label: 'Users', icon: 'Users' });
   }
 
   const secondaryNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
@@ -63,10 +68,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
         className={`w-full flex items-center p-3 rounded-xl transition-all group ${
           isActive 
             ? 'bg-teal-50 text-teal-600' 
-            : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+            : 'text-slate-900 hover:bg-slate-50 hover:text-slate-950'
         }`}
       >
-        <Icon size={20} className={`${isActive ? 'text-teal-600' : 'group-hover:text-slate-800'}`} />
+        <Icon size={20} className={`${isActive ? 'text-teal-600' : 'text-slate-700 group-hover:text-slate-900'}`} />
         {/* On mobile, we always want to show the text if the sidebar is open */}
         <span className={`ml-3 font-medium text-sm transition-all duration-200 
           ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>
@@ -106,15 +111,39 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
         <div className="flex-1 overflow-y-auto py-6 px-3 no-scrollbar space-y-6">
           <div>
             <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
-              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0'}`}>Main Menu</p>
+              ${isOpen ? 'opacity-100 text-slate-700' : 'lg:opacity-0 lg:w-0'}`}>General</p>
             <nav className="space-y-1">
-              {mainNavItems.map((item) => <NavButton key={item.label} item={item} />)}
+              {generalNavItems.map((item) => <NavButton key={item.label} item={item} />)}
             </nav>
           </div>
 
           <div>
             <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
-              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0'}`}>Career</p>
+              ${isOpen ? 'opacity-100 text-slate-700' : 'lg:opacity-0 lg:w-0'}`}>Requests</p>
+            <nav className="space-y-1">
+              {requestNavItems.map((item) => <NavButton key={item.label} item={item} />)}
+            </nav>
+          </div>
+
+          <div>
+            <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
+              ${isOpen ? 'opacity-100 text-slate-700' : 'lg:opacity-0 lg:w-0'}`}>Resources</p>
+            <nav className="space-y-1">
+              {resourceNavItems.map((item) => <NavButton key={item.label} item={item} />)}
+            </nav>
+          </div>
+
+          <div>
+            <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
+              ${isOpen ? 'opacity-100 text-slate-700' : 'lg:opacity-0 lg:w-0'}`}>Services</p>
+            <nav className="space-y-1">
+              {servicesNavItems.map((item) => <NavButton key={item.label} item={item} />)}
+            </nav>
+          </div>
+
+          <div>
+            <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
+              ${isOpen ? 'opacity-100 text-slate-700' : 'lg:opacity-0 lg:w-0'}`}>Career</p>
             <nav className="space-y-1">
               {careerNavItems.map((item) => <NavButton key={item.label} item={item} />)}
             </nav>
@@ -122,7 +151,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
 
           <div>
             <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
-              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0'}`}>System</p>
+              ${isOpen ? 'opacity-100 text-slate-700' : 'lg:opacity-0 lg:w-0'}`}>System</p>
             <nav className="space-y-1">
               {secondaryNavItems.map((item) => <NavButton key={item.label} item={item} />)}
             </nav>
