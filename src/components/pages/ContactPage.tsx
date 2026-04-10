@@ -4,10 +4,13 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/layout/PageBanner";
 import SectionLabel from "@/components/layout/SectionLabel";
 import { toast } from "sonner";
-import { contactInfo, serviceOptions } from "@/components/pages/constant/contact.data";
+import { contactInfo } from "@/components/pages/constant/contact.data";
+import { useServicesQuery } from "@/hooks/useServicesQuery";
 export default function ContactPage() {
   useScrollReveal();
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const { data: services = [], isLoading: servicesLoading } = useServicesQuery();
+  const serviceOptions = services.map((service) => service.title);
 
   const [formData, setFormData] = useState({
     firstName: "", lastName: "", email: "", company: "", service: "", message: "",
@@ -130,9 +133,13 @@ export default function ContactPage() {
                     className="w-full px-3 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:border-accent focus:outline-none transition-colors"
                   >
                     <option value="">Select a service...</option>
+                    {servicesLoading ? (
+                      <option value="" disabled>Loading services...</option>
+                    ) : null}
                     {serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>{opt}</option>
                     ))}
+                    <option value="Other / Multiple Services">Other / Multiple Services</option>
                   </select>
                 </div>
 
