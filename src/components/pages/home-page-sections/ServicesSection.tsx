@@ -11,6 +11,7 @@ interface ServicesSectionProps {
 
 export default function ServicesSection({ services, servicesLoading }: ServicesSectionProps) {
   const featuredServices = services.slice(0, 6);
+  const cardShapeClass = "rounded-[3.5rem_1.2rem_3.5rem_1.2rem]";
 
   return (
     <section className="section-padding bg-background">
@@ -45,7 +46,7 @@ export default function ServicesSection({ services, servicesLoading }: ServicesS
               return (
                 <div
                   key={s.slug}
-                  className="reveal group relative bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 hover:border-accent overflow-hidden"
+                  className={`reveal group relative bg-card border border-border p-6 min-h-[220px] transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 hover:border-accent overflow-hidden ${cardShapeClass}`}
                 >
                   {/* Top accent bar */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] gradient-bar origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
