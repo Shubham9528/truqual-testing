@@ -26,7 +26,7 @@ export interface BlogPost {
   image: string;
 }
 
-export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Team' | 'Contact' | 'Job Openings' | 'Candidate Info' | 'Users' | 'Events' | 'Newsletter' | 'Settings' | 'Support';
+export type ViewType = 'Dashboard' | 'Blogs' | 'Services' | 'Case Studies' | 'Team' | 'Contact' | 'Industries' | 'Job Openings' | 'Candidate Info' | 'Users' | 'Events' | 'Newsletter' | 'Settings' | 'Support';
 
 export interface User {
   _id: string;
@@ -103,6 +103,13 @@ export interface BackendContactInfo {
   email?: string;
   businessHours?: string;
   consultationText?: string;
+}
+
+export interface BackendIndustry {
+  _id: string;
+  title: string;
+  description: string;
+  iconKey: string;
 }
 
 export interface BackendJobOpening {

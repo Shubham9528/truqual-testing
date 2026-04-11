@@ -17,6 +17,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
   const resourceNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
     { label: 'Blogs', icon: 'BookOpen' },
     { label: 'Contact', icon: 'MessageSquare' },
+    { label: 'Industries', icon: 'FileText' },
     { label: 'Case Studies', icon: 'FileText' },
     { label: 'Team', icon: 'Users' },
   ];
