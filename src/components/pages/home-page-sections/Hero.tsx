@@ -1,120 +1,160 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
 import { stats } from "@/components/pages/constant/home.data";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.5, ease: "easeOut" as const },
+  }),
+};
 
 export default function Hero() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden pt-[70px]">
-        {/* Background image overlay */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-background">
+        {/* Light gradient background */}
         <div
-          className="absolute inset-0 opacity-15 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})` }}
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--background)) 44%, hsl(var(--primary) / 0.08) 100%)",
+          }}
         />
-        {/* Radial accents */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: "radial-gradient(circle at 20% 50%, hsla(103,62%,59%,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 20%, hsla(37,91%,53%,0.06) 0%, transparent 50%)"
-        }} />
-        {/* Grid pattern */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: "linear-gradient(hsla(103,62%,59%,0.04) 1px, transparent 1px), linear-gradient(90deg, hsla(103,62%,59%,0.04) 1px, transparent 1px)",
-          backgroundSize: "60px 60px"
-        }} />
 
-        <div className="relative z-10 container-narrow px-5 sm:px-6 py-12 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        {/* Radial accents */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
+
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0 z-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground) / 0.45) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.45) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="container relative z-10 py-20 lg:py-28">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left */}
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 border border-amber/30 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
-                <span className="font-heading text-xs font-bold tracking-wider uppercase text-amber">
+            <motion.div
+              className="space-y-8"
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div custom={0} variants={fadeUp}>
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse-dot" />
                   Expert Services
                 </span>
-              </div>
+              </motion.div>
 
-              <h1 className="font-heading font-black text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] text-white leading-[1.08] mb-4 md:mb-5" style={{ lineHeight: "1.08" }}>
+              <motion.h1
+                custom={1}
+                variants={fadeUp}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-foreground"
+              >
                 Validation You Can{" "}
-                <span className="text-amber">Trust.</span>
+                <span className="text-primary">Trust.</span>
                 <br />
                 Compliance You Can{" "}
-                <span className="text-green">Prove.</span>
-              </h1>
+                <span className="text-green-500">Prove.</span>
+              </motion.h1>
 
-              <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-[480px] mb-7 md:mb-8">
+              <motion.p
+                custom={2}
+                variants={fadeUp}
+                className="text-lg text-muted-foreground max-w-lg leading-relaxed"
+              >
                 End-to-end validation and regulatory compliance services for pharmaceutical,
                 biotech, and medical device companies — from process design to FDA approval.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 md:mb-10">
+              <motion.div custom={3} variants={fadeUp} className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3.5 rounded-md bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wide no-underline transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all"
                 >
                   Request Consultation
-                  <ArrowRight size={16} />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3.5 rounded-md border border-white/25 text-white font-heading font-semibold text-sm uppercase tracking-wide no-underline transition-all duration-200 hover:border-accent hover:text-accent"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-background/80 backdrop-blur px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-all"
                 >
                   Our Services
                 </Link>
-              </div>
+              </motion.div>
 
               {/* Stats */}
-              <div className="flex flex-wrap gap-x-6 gap-y-4 pt-5 md:pt-6 border-t border-white/10">
+              <motion.div
+                custom={4}
+                variants={fadeUp}
+                className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-4 border-t border-border/60"
+              >
                 {stats.map((s) => (
-                  <div key={s.label} className="min-w-[120px] flex-1 sm:flex-none">
-                    <div className="font-heading font-extrabold text-xl sm:text-2xl text-amber tabular-nums">
+                  <div key={s.label} className="space-y-1">
+                    <p className="text-2xl font-bold text-primary">
                       {s.value}
-                    </div>
-                    <div className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider">
+                    </p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider">
                       {s.label}
-                    </div>
+                    </p>
                   </div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Right — feature cards */}
-            <div className="hidden lg:grid grid-cols-2 gap-3">
+            <motion.div
+              className="grid grid-cols-2 gap-4"
+              initial="hidden"
+              animate="visible"
+            >
               {[
                 { icon: "🔬", title: "FDA Compliant", desc: "21 CFR Part 11 ready" },
                 { icon: "🏭", title: "GMP Validated", desc: "EU & WHO standards" },
                 { icon: "📊", title: "Risk-Based", desc: "ICH Q9 methodology" },
                 { icon: "🎯", title: "First-Pass Success", desc: "98.3% audit pass rate" },
-              ].map((card) => (
-                <div
+              ].map((card, i) => (
+                <motion.div
                   key={card.title}
-                  className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-5 transition-all duration-200 hover:border-accent hover:bg-accent/5 group"
+                  custom={i + 2}
+                  variants={fadeUp}
+                  className="group relative rounded-2xl border border-border/60 bg-card/80 backdrop-blur-md p-6 shadow-sm hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="text-2xl mb-2">{card.icon}</div>
-                  <div className="font-heading font-bold text-xs text-white uppercase tracking-wide">
+                  <span className="text-3xl block mb-3">{card.icon}</span>
+                  <h3 className="font-semibold text-foreground mb-1">
                     {card.title}
-                  </div>
-                  <div className="text-xs text-slate-400 mt-1">{card.desc}</div>
-                </div>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{card.desc}</p>
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Trust bar */}
-      <div className="bg-navy-mid py-4 px-6 border-b border-white/[0.06]">
-        <div className="container-narrow flex flex-wrap items-center justify-center gap-8 md:gap-12">
-          {["FDA 21 CFR Part 11", "EU GMP Annex 11", "ICH Q8/Q9/Q10", "ISO 13485", "GAMP 5 Certified", "ALCOA+ Compliant"].map((item) => (
-            <div key={item} className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-              <span className="text-slate-400 text-xs font-heading font-semibold uppercase tracking-wider whitespace-nowrap">
+      <section className="border-t border-border/60 bg-muted/30 py-8">
+        <div className="container flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          {["FDA 21 CFR Part 11", "EU GMP Annex 11", "ICH Q8/Q9/Q10", "ISO 13485", "GAMP 5 Certified", "ALCOA+"].map((item) => (
+            <div key={item} className="flex items-center gap-2 text-muted-foreground">
+              <CheckCircle className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium whitespace-nowrap">
                 {item}
               </span>
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 }
