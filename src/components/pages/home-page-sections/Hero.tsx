@@ -40,6 +40,18 @@ export default function Hero() {
           }}
         />
 
+        {/* Vertical scanning line */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full z-0 overflow-hidden">
+          <div className="w-full h-[80px] bg-gradient-to-b from-transparent via-primary/60 to-transparent" style={{ animation: "scanV 3s linear infinite" }} />
+        </div>
+
+        {/* Horizontal scanning line */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[2px] z-0 overflow-hidden">
+          <div className="h-full w-[80px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" style={{ animation: "scanH 3s linear infinite" }} />
+        </div>
+
+        <style>{`@keyframes scanV{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}@keyframes scanH{0%{transform:translateX(-100%)}100%{transform:translateX(100vw)}}`}</style>
+
         <div className="container relative z-10 py-20 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left */}
