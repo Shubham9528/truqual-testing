@@ -130,7 +130,7 @@ export default function Hero() {
               animate="visible"
             >
               {[
-                { icon: "🔬", title: "FDA Compliant", desc: "21 CFR Part 11 ready" },
+                { icon: "🔬", title: "CSV Standrads", desc: "21 CFR Part 11 ready" },
                 { icon: "🏭", title: "GMP Validated", desc: "EU & WHO standards" },
                 { icon: "📊", title: "Risk-Based", desc: "ICH Q9 methodology" },
                 { icon: "🎯", title: "First-Pass Success", desc: "98.3% audit pass rate" },
