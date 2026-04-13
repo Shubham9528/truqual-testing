@@ -3,6 +3,9 @@
   FileCheck2,
   Layers3,
 } from "lucide-react";
+import AssessMapImg from "@/assets/Assess_map.png";
+import DocumentExecuteImg from "@/assets/Document_execute.png";
+import SustainImproveImg from "@/assets/Sustain_improve.png";
 
 export const stats = [
   { value: "10+", label: "Projects Delivered" },
@@ -16,16 +19,19 @@ export const processSteps = [
     step: "01",
     title: "Assess & Map",
     desc: "We review your facility, systems, and regulatory obligations to define a practical validation roadmap.",
+    image: AssessMapImg,
   },
   {
     step: "02",
     title: "Document & Execute",
     desc: "Our team builds protocols, executes qualification activities, and captures evidence with inspection-ready rigor.",
+    image: DocumentExecuteImg,
   },
   {
     step: "03",
     title: "Sustain & Improve",
     desc: "We close gaps, train stakeholders, and support long-term compliance through change control and periodic review.",
+    image: SustainImproveImg,
   },
 ];
 

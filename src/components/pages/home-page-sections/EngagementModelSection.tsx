@@ -17,27 +17,30 @@ export default function EngagementModelSection() {
           <div className="h-[3px] w-14 gradient-bar rounded-full mt-5 mx-auto" />
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-5 stagger-children">
+        <div className="grid lg:grid-cols-3 gap-6 stagger-children">
           {processSteps.map((item) => (
             <div
               key={item.step}
-              className="reveal relative bg-card border border-border rounded-2xl p-7 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 hover:border-accent group"
+              className="reveal relative bg-card border border-border rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 hover:border-accent group"
             >
-              <div className="absolute top-0 left-0 right-0 h-[3px] gradient-bar" />
-              <div className="flex items-center justify-between mb-6">
-                <span className="font-heading font-black text-4xl leading-none text-accent/20">
-                  {item.step}
-                </span>
-                <span className="text-[10px] font-heading font-bold uppercase tracking-[2px] text-amber">
-                  Truqual Method
-                </span>
+              <span className="absolute top-[2px] left-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent text-white font-heading font-bold text-lg">
+                {item.step}
+              </span>
+              <div className="p-6 pt-10 text-center">
+                <h3 className="font-heading font-bold text-lg text-foreground mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
-              <h3 className="font-heading font-bold text-lg text-foreground mb-3">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {item.desc}
-              </p>
+              <div className="relative h-64 overflow-hidden flex items-center justify-center bg-muted/20">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="max-w-[80%] max-h-full object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>
