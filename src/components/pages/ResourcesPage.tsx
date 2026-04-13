@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionLabel from "@/components/layout/SectionLabel";
 import { useBlogsQuery } from "@/hooks/useBlogsQuery";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function ResourcesPage() {
-  useScrollReveal();
   const { data: blogs = [], isLoading, isError } = useBlogsQuery();
+  useScrollReveal([isLoading, blogs.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,39 +46,36 @@ export default function ResourcesPage() {
         ) : null}
 
         {!isLoading && !isError && blogs.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 stagger-children">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
             {blogs.map((blog) => (
-              <Link key={blog.id} to={`/blogs/${blog.id}`} className="block no-underline">
-                <article className="group bg-card rounded-2xl overflow-hidden border border-border transition-all duration-300 hover:shadow-xl hover:shadow-black/10 hover:-translate-y-1 h-full flex flex-col">
-                  <div className="relative overflow-hidden aspect-video bg-secondary/40">
-                    <img
-                      src={blog.image}
-                      alt={blog.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  <div className="p-5 flex-1 flex flex-col">
-                    <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
-                      <span className="font-heading font-bold text-foreground">{blog.author}</span>
-                      <span>|</span>
-                      <span>{blog.date}</span>
-                    </div>
-
-                    <div className="flex justify-between items-start gap-3 mb-2">
-                      <h3 className="font-heading font-extrabold text-xl text-foreground leading-snug line-clamp-2">
-                        {blog.title}
-                      </h3>
-                      <ArrowUpRight className="w-5 h-5 text-muted-foreground mt-1 shrink-0" />
-                    </div>
-
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                      {blog.description}
-                    </p>
-                  </div>
-                </article>
-              </Link>
+              <div
+                key={blog.id}
+                className="reveal group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 hover:border-accent"
+              >
+                <div className="absolute top-0 left-0 right-0 h-[3px] gradient-bar origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 z-10" />
+                <div className="relative overflow-hidden aspect-video bg-secondary/40 flex items-center justify-center">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-heading font-bold text-base text-foreground mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  {/* <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                    {blog.description}
+                  </p> */}
+                  <Link
+                    to={`/blogs/${blog.id}`}
+                    className="inline-flex items-center gap-1 mt-4 text-amber font-heading font-bold text-xs uppercase tracking-wide no-underline hover:gap-2 transition-all"
+                  >
+                    Learn More <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         ) : null}

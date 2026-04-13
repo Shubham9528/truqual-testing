@@ -23,7 +23,7 @@ export default function BlogDetailsPage() {
         <div className="mb-8">
           <Link
             to="/resources"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors no-underline"
+            className="inline-flex items-center gap-2 text-foreground hover:text-accent transition-colors no-underline"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="font-heading font-medium text-sm">Back to all posts</span>
@@ -34,7 +34,7 @@ export default function BlogDetailsPage() {
           <div className="rounded-xl border border-border bg-card p-10">
             <div className="flex flex-col items-center justify-center gap-3">
               <div className="h-10 w-10 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
-              <p className="text-sm text-muted-foreground">Loading blog details...</p>
+              <p className="text-sm text-foreground">Loading blog details...</p>
             </div>
           </div>
         ) : null}
@@ -52,7 +52,7 @@ export default function BlogDetailsPage() {
         ) : null}
 
         {!isLoading && !isInvalidId && !isError && !post ? (
-          <div className="rounded-xl border border-border bg-card p-6 text-sm text-muted-foreground">
+          <div className="rounded-xl border border-border bg-card p-6 text-sm text-foreground">
             Blog post not found.
           </div>
         ) : null}
@@ -78,14 +78,14 @@ export default function BlogDetailsPage() {
               </h1>
 
               <div className="flex flex-wrap items-center justify-center gap-6 pb-8 border-b border-border">
-                <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="flex items-center gap-2 text-foreground">
                   <span className="w-9 h-9 rounded-full bg-secondary/70 border border-border inline-flex items-center justify-center">
                     <User className="w-4 h-4" />
                   </span>
                   <span className="font-heading font-semibold text-foreground">{post.author}</span>
                 </div>
 
-                <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="flex items-center gap-2 text-foreground">
                   <Calendar className="w-4 h-4" />
                   <span>{post.date}</span>
                 </div>
@@ -99,7 +99,7 @@ export default function BlogDetailsPage() {
             <div className="max-w-4xl mx-auto">
               <section className="mb-8">
                 <SectionLabel label="Description" />
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
                   {post.description}
                 </p>
               </section>
@@ -107,7 +107,7 @@ export default function BlogDetailsPage() {
               {post.contentBody?.introduction ? (
                 <section className="mb-8">
                   <SectionLabel label="Introduction" />
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-foreground leading-relaxed">
                     {post.contentBody.introduction}
                   </p>
                 </section>
@@ -116,7 +116,7 @@ export default function BlogDetailsPage() {
               {post.contentBody?.keyTakeaways?.length ? (
                 <section className="mb-8">
                   <SectionLabel label="Key Takeaways" />
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-foreground leading-relaxed">
                     {post.contentBody.keyTakeaways.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -127,7 +127,7 @@ export default function BlogDetailsPage() {
               {post.contentBody?.elaborated ? (
                 <section className="mb-8">
                   <SectionLabel label="Detailed Insights" />
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-foreground leading-relaxed">
                     {post.contentBody.elaborated}
                   </p>
                 </section>
@@ -142,7 +142,7 @@ export default function BlogDetailsPage() {
               {post.contentBody?.conclusion ? (
                 <section>
                   <SectionLabel label="Conclusion" />
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-foreground leading-relaxed">
                     {post.contentBody.conclusion}
                   </p>
                 </section>
