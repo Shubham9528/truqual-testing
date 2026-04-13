@@ -18,6 +18,7 @@ const footerLinks = {
     { label: 'Case Studies', path: '/case-studies' },
     { label: 'Industries', path: '/industries' },
     { label: 'Contact', path: '/contact' },
+    { label: 'Dashboard', path: '/dashboard' },
   ],
 };
 
