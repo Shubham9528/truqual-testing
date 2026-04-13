@@ -100,7 +100,7 @@ export default function Hero() {
               >
                 {stats.map((s) => (
                   <div key={s.label} className="space-y-1">
-                    <p className="text-2xl font-bold text-primary">
+                    <p className="text-2xl font-bold text-foreground">
                       {s.value}
                     </p>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider">
